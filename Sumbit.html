@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Message Sent - Dipak Kumar</title>
+  <style>
+    /* Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b, #0ea5e9);
+      color: #f1f5f9;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Floating Background Animation */
+    body::before {
+      content: "";
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,0,150,0.2) 10%, transparent 70%),
+                  radial-gradient(circle, rgba(0,212,255,0.2) 10%, transparent 70%),
+                  radial-gradient(circle, rgba(255,255,0,0.2) 10%, transparent 70%);
+      background-size: 40% 40%;
+      animation: bgMove 15s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes bgMove {
+      0% { transform: translate(0,0) rotate(0deg); }
+      50% { transform: translate(80px, 80px) rotate(180deg); }
+      100% { transform: translate(0,0) rotate(360deg); }
+    }
+
+    /* Success Card */
+    .success-card {
+      background: rgba(30, 41, 59, 0.9);
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      max-width: 450px;
+      width: 100%;
+      box-shadow: 0 0 30px rgba(14, 165, 233, 0.6);
+      animation: floatCard 6s ease-in-out infinite;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      perspective: 1000px;
+    }
+
+    .success-card:hover {
+      transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.6);
+    }
+
+    @keyframes floatCard {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Checkmark Animation */
+    .checkmark {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: inline-block;
+      position: relative;
+      box-shadow: 0 0 20px rgba(34, 197, 94, 0.6);
+      border: 5px solid #22c55e;
+      margin-bottom: 20px;
+      animation: popIn 0.8s ease-out forwards;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.3); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .checkmark::after {
+      content: "";
+      position: absolute;
+      left: 22px;
+      top: 12px;
+      width: 20px;
+      height: 40px;
+      border-right: 5px solid #22c55e;
+      border-bottom: 5px solid #22c55e;
+      transform: rotate(45deg);
+      animation: drawCheck 0.8s ease forwards 0.5s;
+      opacity: 0;
+    }
+
+    @keyframes drawCheck {
+      0% { height: 0; opacity: 1; }
+      100% { height: 40px; opacity: 1; }
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #22c55e;
+      text-shadow: 0 0 15px rgba(34, 197, 94, 0.8);
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #e2e8f0;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+      color: #fff;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 20px rgba(14, 165, 233, 0.6);
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px rgba(14, 165, 233, 0.9);
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="success-card">
+    <div class="checkmark"></div>
+    <h1>Message Sent Sucessfully!</h1>
+    <p>Thank you for reaching out.</p>
+    <a href="index.html" class="btn">⬅ Back to Home</a>
+  </div>
+
+</body>
+</html>

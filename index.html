@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dipak - Portfolio</title>
+
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(270deg, #0f0c29, #302b63, #24243e);
+      background-size: 600% 600%;
+      animation: gradientMove 15s ease infinite;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Background Animation */
+    @keyframes gradientMove {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Navbar */
+    nav {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1000;
+      backdrop-filter: blur(8px);
+    }
+
+    nav .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #ff4dff;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+      position: relative;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav ul li a::after {
+      content: '';
+      width: 0;
+      height: 2px;
+      background: #ff4dff;
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      transition: width 0.3s;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 10%;
+      margin-top: 60px;
+    }
+
+    .hero-text {
+      max-width: 50%;
+      animation: fadeInLeft 1.5s ease;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #ddd;
+    }
+
+    .hero-text h1 {
+      font-size: 55px;
+      color: #ff4dff;
+      text-shadow: 0 0 15px rgba(255, 77, 255, 0.6);
+    }
+
+    /* Typing effect */
+    .typing {
+      border-right: 3px solid #ff4dff;
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
+      min-height: 65px;
+    }
+
+    .hero-text h2 {
+      font-size: 26px;
+      margin: 15px 0;
+      color: #a3b3ff;
+    }
+
+    .hero-text p.desc {
+      margin: 15px 0;
+      line-height: 1.6;
+      color: #eee;
+    }
+
+    /* Buttons */
+    .buttons {
+      margin-top: 20px;
+    }
+
+    .btn {
+      padding: 12px 22px;
+      margin-right: 15px;
+      border-radius: 30px;
+      border: none;
+      font-size: 15px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .btn-purple {
+      background: linear-gradient(90deg, #9f4fff, #ff3fc7);
+      color: #fff;
+    }
+
+    .btn-dark {
+      background: #111;
+      color: #fff;
+      border: 1px solid #444;
+    }
+
+    .btn::after {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: rgba(255, 255, 255, 0.2);
+      top: -50%;
+      left: -50%;
+      transform: rotate(45deg);
+      transition: all 0.5s;
+    }
+
+    .btn:hover::after {
+      left: 100%;
+    }
+
+    .btn:hover {
+      transform: scale(1.08);
+    }
+
+    /* Profile image */
+    .hero-img {
+      width: 300px;
+      height: 350px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0px 0px 30px rgba(255, 0, 255, 0.5);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .hero-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .hero-img img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Floating animation */
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-20px);
+      }
+
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    /* Fade in left animation */
+    @keyframes fadeInLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Sections */
+    section {
+      min-height: 100vh;
+      padding: 100px 10%;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease;
+    }
+
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    section h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #ff4dff;
+    }
+
+    #about {
+      background: rgba(20, 20, 40, 0.6);
+    }
+
+    #projects {
+      background: rgba(25, 25, 55, 0.6);
+    }
+
+    #experience {
+      background: rgba(20, 20, 40, 0.6);
+    }
+
+    #achievements {
+      background: rgba(25, 25, 55, 0.6);
+    }
+
+    #contact {
+      background: rgba(20, 20, 40, 0.6);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">D.K</div>
+    <ul>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="achivement.html">Achievements</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-text">
+      <p>Hi there, I'm</p>
+      <h1><span class="typing" id="typing"></span></h1>
+      <h2>Developer</h2>
+      <p class="desc">
+        Passionate about solving complex problems through code.
+        I bridge the worlds of software
+        engineering and education to inspire innovation and growth.
+      </p>
+      <div class="buttons">
+        <a href="projects.html" class="btn btn-purple">View My Work →</a>
+        <button class="btn btn-dark"
+          onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">Get In Touch</button>
+      </div>
+    </div>
+
+    <div class="hero-img">
+      <img src="IMAGES/My.jpg" alt="Profile Photo">
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About</h2>
+    <p> B.Tech Student in Computer Science & Engineering<br/><br/>
+      
+      I aim to become a software engineer who contributes to cutting-edge technology 
+        and solves real-world problems using creativity and technical expertise.</p>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>
+ Get in touch! Email me at dipak@gmail.com or call 7848819537. Let's discuss projects and ideas.<br/><br/>
+ I'm also on LinkedIn and GitHub.</p>
+  </section>
+
+  <!-- JavaScript for Scroll Reveal & Typing -->
+  <script>
+    // Scroll reveal
+    const sections = document.querySelectorAll("section");
+    window.addEventListener("scroll", () => {
+      sections.forEach(sec => {
+        const top = window.scrollY;
+        const offset = sec.offsetTop - 400;
+        const height = sec.offsetHeight;
+        if (top >= offset && top < offset + height) {
+          sec.classList.add("show");
+        }
+      });
+    });
+
+    // Typing effect
+    const text = "Dipak Kumar Dutta";
+    let index = 0;
+    function typeEffect() {
+      if (index < text.length) {
+        document.getElementById("typing").textContent += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, 150);
+      }
+    }
+    window.onload = typeEffect;
+  </script>
+
+</body>
+
+</html>

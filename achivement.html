@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Achievements - Dipak Kumar</title>
+  <style>
+    /* Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0f172a;
+      color: #f1f5f9;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 50px 20px;
+      position: relative;
+    }
+
+    /* Lights show background */
+    body::before {
+      content: "";
+      position: fixed;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0,212,255,0.25) 10%, transparent 70%),
+                  radial-gradient(circle, rgba(255,0,150,0.25) 10%, transparent 70%),
+                  radial-gradient(circle, rgba(255,255,0,0.25) 10%, transparent 70%);
+      background-size: 40% 40%;
+      animation: moveLights 15s infinite linear;
+      z-index: -1;
+    }
+
+    @keyframes moveLights {
+      0% { transform: translate(0,0) rotate(0deg); }
+      50% { transform: translate(50px, 50px) rotate(180deg); }
+      100% { transform: translate(0,0) rotate(360deg); }
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      color: #38bdf8;
+      text-shadow: 0 0 15px rgba(56, 189, 248, 0.8);
+    }
+
+    .achievements-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .achievement-card {
+      background: rgba(30, 41, 59, 0.8);
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .achievement-card:hover {
+      transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+    }
+
+    .achievement-card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: #facc15;
+      text-shadow: 0 0 10px rgba(250, 204, 21, 0.7);
+    }
+
+    .achievement-card ul {
+      list-style: none;
+    }
+
+    .achievement-card ul li {
+      margin-bottom: 10px;
+      color: #e2e8f0;
+      font-size: 1rem;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .achievement-card ul li::before {
+      content: "★";
+      position: absolute;
+      left: 0;
+      color: #38bdf8;
+      text-shadow: 0 0 5px #38bdf8;
+    }
+
+    /* Floating animation */
+    .achievement-card {
+      animation: floatCard 6s ease-in-out infinite;
+    }
+
+    @keyframes floatCard {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>My Achievements</h1>
+
+  <div class="achievements-container">
+    <!-- Academic Achievements -->
+    <div class="achievement-card">
+      <h2>📘 Academic</h2>
+      <ul>
+        <li>Secured 8.82 CGPA in B.Tech (CSE).</li>
+        <li>Completely learn Java Fullstack</li>
+        <li>Awarded "Best Student" in 2025.</li>
+      </ul>
+    </div>
+
+    <!-- Technical Achievements -->
+    <div class="achievement-card">
+      <h2>💻 Technical</h2>
+      <ul>
+        <li>Built a full-stack web app using Spring Boot & Mysql.</li>
+        <li>Contributed to open-source projects on GitHub.</li>
+        <li>Won 4th place in Hackathon 2025 (AI-based solution).</li>
+      </ul>
+    </div>
+
+    <!-- Extracurricular Achievements -->
+    <div class="achievement-card">
+      <h2>🏆 Extracurricular</h2>
+      <ul>
+        <li>Organized a college-level coding competition.</li>
+        <li>Member of college technical club & mentoring juniors.</li>
+        <li>Published 2 research papers.</li>
+      </ul>
+    </div>
+  </div>
+
+</body>
+</html>
